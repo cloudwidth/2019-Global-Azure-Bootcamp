@@ -1,0 +1,31 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "value": "West US"
+    },
+    "adminUsername": {
+      "value": "azureuser"
+    },
+    "adminPassword": {
+      "value": "GEN-PASSWORD"
+    },
+    "adVMSize": {
+      "value": "Standard_D1"
+    },
+    "domainName": {
+      "value": "mydomain.local"
+    },
+    "addnsName": {
+      "value": "GEN-UNIQUE"
+    },
+    "namePrefix": {
+      "value": "GEN-UNIQUE"
+    },
+    "assetLocation": {
+      "value": "https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/"
+    }
+  }
+}
+

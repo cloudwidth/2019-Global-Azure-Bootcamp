@@ -1,0 +1,55 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "existingLocalVirtualNetworkName": {
+      "type": "string",
+      "defaultValue": "GAB2019DemoVNet2",
+      "metadata": {
+        "description": "Set the local VNet name"
+      }
+    },
+    "existingRemoteVirtualNetworkName": {
+      "type": "string",
+      "defaultValue": "GAB2019DemoVNet",
+      "metadata": {
+        "description": "Set the remote VNet name"
+      }
+    },
+    "existingRemoteVirtualNetworkResourceGroupName": {
+      "type": "string",
+      "defaultValue": "RG-2019GAB",
+      "metadata": {
+        "description": "Sets the remote VNet Resource group"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "eastus",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "remoteVNet": "[resourceId(parameters('existingRemoteVirtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks', parameters('existingRemoteVirtualNetworkName'))]",
+    "peeringName": "[concat(parameters('existingLocalVirtualNetworkName'), '/EUS-to-SCUS-vnet')]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2016-06-01",
+      "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "name": "[variables('peeringName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "allowGatewayTransit": false,
+        "useRemoteGateways": false,
+        "remoteVirtualNetwork": {
+          "id": "[variables('remoteVNet')]"
+        }
+      }
+    }
+  ]
+}
