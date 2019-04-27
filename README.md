@@ -1,10 +1,10 @@
-### 2019-Global-Azure-Bootcamp
+# 2019-Global-Azure-Bootcamp
 
-#Part 1: Use an ARM template to deploy a new Active Directory domain with sample data
-# Shout-out to @GoateePFE for the initial work on the code for Part 1.
+### Part 1: Use an ARM template to deploy a new Active Directory domain with sample data
+### Shout-out to @GoateePFE for the initial work on the code for Part 1.
 
-# Log into your Azure subscription and open a PowerShell cloud shell session.
-# Clone this repo down to your clouddrive.
+### Log into your Azure subscription and open a PowerShell cloud shell session.
+### Clone this repo down to your clouddrive.
 
 ### Modify the below powershell code blocks as necessary and execute on the command line
 ### Adjust the 'yournamehere' part of these three strings to
@@ -49,7 +49,7 @@ New-AzResourceGroupDeployment @SplatParams -Verbose
 ### Once the deployment completes, you can RDP into your new domain controller
 
 
-##### Part 2: Use an ARM template to create a new vnet in another region and peer with the vnet from Part 1
+# Part 2: Use an ARM template to create a new vnet in another region and peer with the vnet from Part 1
 
 ### Switch your cloud shell session to Bash
 ### Navigate to /2019-Global-Azure-Bootcamp/vnet-vnet-peering
@@ -62,7 +62,7 @@ sh deploy-new-vnet.sh
 ### The second shell script uses the Azure CLI to create an ARM deployment to peer the new vnet with the existing vnet from Part 1
 sh deploy-vnet-peering.sh
 
-##### Part 3: Use Terraform to deploy a new Active Directory domain controller in the new vnet from Part 1
+# Part 3: Use Terraform to deploy a new Active Directory domain controller in the new vnet from Part 1
 
 ### Continue using or refresh your Bash cloud shell session
 ### Navigate to 2019-Global-Azure-Bootcamp/CreateADReplicaDC
