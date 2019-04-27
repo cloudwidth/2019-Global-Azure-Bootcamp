@@ -10,7 +10,7 @@
 ### Adjust the 'yournamehere' part of these three strings to
 ### something unique for you.
 
-    $URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
+    $URI       = 'https://raw.githubusercontent.com/cloudwidth/2019-Global-Azure-Bootcamp/master/ADDS-with-Data/azuredeploy.json'
     $Location  = 'South Central US'
     $rgname    = 'yournamehere'
     $namePrefix = 'yournamehere'                    ### cannot start with numbers
