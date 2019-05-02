@@ -47,3 +47,8 @@ terraform apply --var-file="CreateADReplicaDC.tfvars"
 You will be promted to type 'yes' to validate you wish to continue
 Once your deployment completes, you can RDP into your new domain controllers from the one created in Part 1.
 Check the AD Users & Computers MMC to view the new domain controllers in the "Domain Controllers" container in AD
+
+# 1
+## 2
+### 3
+#### 4
