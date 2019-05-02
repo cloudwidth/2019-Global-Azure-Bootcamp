@@ -8,7 +8,15 @@
 Shout-out to @GoateePFE for the initial work on the code for Part 1.
 
 Log into your Azure subscription and open a PowerShell cloud shell session.
+When you first open a PowerShell session in cloud shell, you'll be connected to the 'Azure Drive'.
+At the ```PS Azure:\>``` prompt, switch over to your storage account share by typing
+```
+cd $home/clouddrive
+```
 Clone this repo down to your clouddrive.
+```
+git clone https://github.com/cloudwidth/2019-Global-Azure-Bootcamp.git
+```
 
 Follow the instructions in .\ADDS-with-Data\CallingScript.ps1
 
