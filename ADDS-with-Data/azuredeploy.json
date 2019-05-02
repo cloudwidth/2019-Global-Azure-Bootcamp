@@ -4,14 +4,6 @@
   "parameters": {
     "location": {
       "type": "string",
-      "allowedValues": [
-        "West US",
-        "East US",
-        "West Europe",
-        "East Asia",
-        "Southeast Asia",
-        "South Central US"
-      ],
       "metadata": {
         "description": "The region to deploy the resources into"
       }
@@ -149,7 +141,7 @@
     "adSubnetName": "[concat(parameters('namePrefix'),'-Subnet')]",
     "adNicName": "[concat(parameters('namePrefix'),'NIC')]",
     "publicIPAddressName": "[concat(parameters('namePrefix'),'PIP')]",
-    "adVMName": "[concat(parameters('namePrefix'),'DCvm')]",
+    "adVMName": "[concat('vm',parameters('namePrefix'),'DC')]",
     "VnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "adSubnetRef": "[concat(variables('VnetID'),'/subnets/',variables('adSubnetName'))]",
     "adNicId": "[resourceId('Microsoft.Network/networkInterfaces',variables('adNicName'))]",

@@ -1,32 +1,28 @@
 ﻿break
 
-# Shout out to @brwilkinson for assistance with some of this.
+# Shout out to @GoateePFE for laying the groundwork for this 
+# @GoateePFE: Shout out to @brwilkinson for assistance with some of this.
 
 
-# Install the Azure Resource Manager modules from PowerShell Gallery
+# Install the Azure AZ Powershell modules from PowerShell Gallery
 # Takes a while to install 28 modules
-Install-Module AzureRM -Force -Verbose
-Install-AzureRM
-
-# Install the Azure Service Management module from PowerShell Gallery
-Install-Module Azure -Force -Verbose
-
-# Import AzureRM modules for the given version manifest in the AzureRM module
-Import-AzureRM -Verbose
-
-# Import Azure Service Management module
-Import-Module Azure -Verbose
+# Follow the instructions at the URL below if you do not already have the module installed on your workstation
+'https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0'
 
 # Authenticate to your Azure account
 Login-AzAccount
 
-# Adjust the 'yournamehere' part of these three strings to
-# something unique for you. Leave the last two characters in each.
-$URI       = 'https://raw.githubusercontent.com/cloudwidth/ADDS-with-Data/master/active-directory-new-domain-with-data/azuredeploy.json'
+# Set the context to the appropriate Azure Subscription either by the subscription name or Id
+Set-AzContext -SubscriptionName "MyMSDNSubscription"
+Set-AzContext -SubscriptionName "00000000-0000-0000-0000-000000000000"
+
+# Adjust the 'yourname' part below to something unique for you.
+# Set the location to the Azure Region you want to deploy resources to
+$URI       = 'https://raw.githubusercontent.com/cloudwidth/2019-Global-Azure-Bootcamp/master/ADDS-with-Data/azuredeploy.json'
 $Location  = 'South Central US'
-$rgname    = 'RG-2019GAB'
-$namePrefix = 'GAB2019Demo'                     # cannot start with numbers
-$addnsName = ($namePrefix).ToLower()            # Lowercase required
+$namePrefix = 'yourname'                    ### cannot start with numbers, cannot be more than 11 characters - vmnaes will be vm+$NamePrefix+DC (i.e. vmMyVMNameDC)
+$rgname    = ($namePrefix + '-rg')
+$addnsName = ($namePrefix).ToLower()            ### Used for the public DNS name of the VM being deployed.  
 
 
 # Check that the public dns $addnsName is available
@@ -40,7 +36,7 @@ New-AzResourceGroup -Name $rgname -Location $Location
 # Parameters for the template and configuration
 $MyParams = @{
     location              = $Location
-    domainName            = ($namePrefix + ".com")       # The maximum length is 15 characters
+    domainName            = ($namePrefix + ".com")       ### The maximum length is 15 characters
     addnsName             = $addnsName
     namePrefix            = $namePrefix
    }
