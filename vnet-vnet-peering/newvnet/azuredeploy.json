@@ -69,8 +69,8 @@
           ]
         }
       },
-      "dhcpOptions": {
-        "dnsServers": "[parameters('dnsservers')]"
+      "dhcpOptions":  {
+        "dnsServers": ["[parameters('dnsservers')]"]
       },
       "resources": [
         {
