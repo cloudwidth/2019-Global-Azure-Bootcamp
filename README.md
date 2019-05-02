@@ -1,6 +1,6 @@
 # 2019-Global-Azure-Bootcamp
 
-##Prerequisites
+## Prerequisites
 - An Azure subscription (MSDN, trial, etc.)
 - WMF 5.0 (or WMF 4.0 with PowerShellGet installed)
 
@@ -14,7 +14,7 @@ Follow the instructions in .\ADDS-with-Data\CallingScript.ps1
 
 Once the deployment completes, you can RDP into your new domain controller
 
-# Part 2: Use an ARM template to create a new vnet in another region and peer with the vnet from Part 1
+## Part 2: Use an ARM template to create a new vnet in another region and peer with the vnet from Part 1
 
 Switch your cloud shell session to Bash
 Navigate to clouddrive/2019-Global-Azure-Bootcamp/vnet-vnet-peering
@@ -27,7 +27,7 @@ sh deploy-new-vnet.sh
 The second shell script uses the Azure CLI to create an ARM deployment to peer the new vnet with the existing vnet from Part 1
 sh deploy-vnet-peering.sh
 
-# Part 3: Use Terraform to deploy a new Active Directory domain controller in the new vnet from Part 1
+## Part 3: Use Terraform to deploy a new Active Directory domain controller in the new vnet from Part 1
 
 Continue using or refresh your Bash cloud shell session
 Navigate to clouddrive/2019-Global-Azure-Bootcamp/CreateADReplicaDC
