@@ -25,9 +25,12 @@ Once the deployment completes, you can RDP into your new domain controller
 
 ## Part 2: Use an ARM template to create a new vnet in another region and peer with the vnet from Part 1
 
-Switch your cloud shell session to Bash
+Switch your cloud shell session to Bash.  
+
 Navigate to ```clouddrive/2019-Global-Azure-Bootcamp/vnet-vnet-peering```
+
 Execute the following shell scripts.
+
 This process takes less than a minute for each shell script to execute
 
 The first shell script uses the Azure CLI to create an ARM deployment to create the new vnet in the EAST US Region
@@ -42,11 +45,16 @@ sh deploy-vnet-peering.sh
 
 ## Part 3: Use Terraform to deploy a new Active Directory domain controller in the new vnet from Part 1
 
-Continue using or refresh your Bash cloud shell session
+Continue using or refresh your Bash cloud shell session.
+
 Navigate to ```clouddrive/2019-Global-Azure-Bootcamp/CreateADReplicaDC```
 
-Edit the ```CreateADReplicaDC.tfvars``` file by invoking the lightweight vscode editor.  Validate all values match as instructed in the file.
+Edit the ```CreateADReplicaDC.tfvars``` file by invoking the lightweight vscode editor. 
+
 ```code .```
+
+Validate all values match as instructed in the file.
+
 
 Initialize your terraform workspace to ensure you have the correct resources to use the AzureRM provider
 ```
